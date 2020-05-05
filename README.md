@@ -9,4 +9,4 @@ Improments:
 - Hope I can hide the sender address and amount in next version
 
 Idea in figure:
-![alt text](https://raw.githubusercontent.com/viettienbk/arweave-incognito-mode/edit/master/idea.png)
+![alt text](https://raw.githubusercontent.com/viettienbk/arweave-incognito-mode/master/idea.png)
