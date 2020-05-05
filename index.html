@@ -93,6 +93,24 @@
         margin-top: 10%;
     }
 
+    .report {
+        font-size: 15px;
+    }
+
+    #button-submit {
+        margin-top: 20px;
+        padding: 5px 5px;
+        margin: 8px 0;
+        width: 100px;
+        height: 40px;
+        display: inline-block;
+        border: 1px solid greenyellow;
+        border-radius: 4px;
+        box-sizing: border-box;
+        background-color: black;
+        color: greenyellow;
+    }
+
 </style>
 
 <!DOCTYPE html>
@@ -105,6 +123,7 @@
         <script src="https://unpkg.com/arweave/bundles/web.bundle.js"></script>
     </head>
     <body>
+        <center><div class="incognito-status" id="incognito-status" style="display: none; width: 50%;"></div></center>
         <center><div class="report" id="report" style="display: none; width: 50%;"></div></center>
         <div class="landing-page" id="landing-page">
             <div class="slogan" id="slogan">
@@ -133,17 +152,17 @@
                 <center><div style="margin-top: 10px;" id="transaction-pool"></div></center>
             </div>
             <div>
-                <center><p style="color: red;">Note: the number of transaction in pool must reach the require number to be sent</p></center>
+                <center><p style="color: red;">Note: Send the same amount as the other will help you more anonymous.</p></center>
             </div>
             <div class="input">
                 <center>
-                    <label for="to">Send to: </label>
+                    <label for="to">Destination: </label>
                     <input name="to" id="to" type="text" required/> 
-                    <label style="margin-left: 15px;" for="amount">Amount: </label>
+                    <label style="margin-left: 15px;" for="amount">Value: </label>
                     <input name="amount" id="amount" type="number" min="0" placeholder="AR unit" required/>
                 </center>
             </div>
-            <center><button class="button-transfer" type="submit" id="button-submit" onclick="submit()">Submit</button></center>
+            <center><button type="submit" id="button-submit" onclick="submit()">Submit</button></center>
         </div>
 
         <div id="github">
@@ -162,11 +181,7 @@
             const incognito_object = `{"kty":"RSA","e":"AQAB","n":"sEVXEd7Z_ztiCDrZ0bhLI0O4WMzm60dow0HjxdSMIEHKK5zsUPIOle1I45xgamLDZAAxTIIE42mTbzLGcFMKt9t5tnTky7P_aAN2zKe1CQixlH1S2147eH5MoCvCvCNtw9OGjdppJVbw709RCVru2k7riNxKY4Y-ybn4ZPCKdU9XtiQdOzWVk2IJJ_g1T1b3KMWEI2JwjA-YQs_mV0zQ7LJ-hHVHFKFX096wSXXt2iR-XpxWUFplJewt-WZ3XALkPOsGUnoBkvQjkrUNdFW2IeDe2JbxDr5I6bWT20fQYZ3zB4nwrkwf2VJAIpe4y0SUSnQndrNICrmgqtTXubCIJ_1VQvBExJvDAq-nenWWiaIy9bkM63TEKjhhM4sXmRfIZQVlqIFTklMAMD-Lv5YHZkuA5h0gu6QnOCdK6W9OQqazSzbXPZXO8mVqy4nCVE6_dXLNjRdr-NJtNZARisCwq7NVsPBymlGOvReijHPJCWlQwRCli5UIHO1av5vGV6j27mDKifATi7WjgZEe0VVlPckR4DRnJISjF_2_Wk4PH5Kfgpqn3_7OrRXbgwBMAuqGdd4Tc8YaBrO1hfWDr0ohWp49Ig0tDytnFxCI61qJraGAjWt92jsHEb5OlJ3u91YndWntO7JOgKX8dClmmUUZaw1FeQvkOb-k5OXqT00RbcU","d":"L0kCkOgrqYSYCSYkXVZnTZfygVvCDFZ1G3_25pBcYKDVZ3qqiBJO6FglZ-2Ajblduds1XlU4k3q0Uq2XvvT_2I9XKKNV5vErsA7R1ReeAETlQjSWQAOYx3t1-beTfx2v6cq5-x6eeyZF7qRj1DMhBM4L8ARMLkOKX1n0cLt4IPz-Rf2NG9-FdupjE2ZJgrWNCtJlXoqfL2tViIK1wzB3kS9Wshi1zypy4YKI3sP0YMLOZXnhy59cJ96h_JfIqBWcfVz8rq5M8stsKYRJDi6Z85-bmBVxp-dSruMHPVkX5L_WvGx79H22Q3mFe-Igb-K_NvPOzFBOoJXoLDt5fTYGZ-WnKrFyYTxJhPE6xFcU6nYBn7hjioKLW-fVNTPxuOc-jdlzHyaRZHlInSdUNVrnia26YmAUUDlPjfMW3xJ7dlYw9v9iNkN7qaFg81kDzwS89VENlgcAzPI_aI4RtqmABeWcMBaz3TkOw9CqjpsEYonn9CYeqYhpiT4ubVBqElAYmDPuw4aIXIM-oTk-hhR4FI0MOtuZ0BXDTqHRG-q0DYAS_Ke4kVRzVxz4h1iKd1DjyUAle2vCpyMsQ6fuLOumzMJfy1y1QXG3owFb_2zFbsZsMoQaowesIoY2tg4gkeueBta2PTAxiNKfu1W_vo4d1-8_OngD_QeEiGUIrz3k6kc","p":"4ayeEFSfUnXPpQ4nosIXIEf2yrU9b1kVEiSWacC13xoJz9bjSh729uKe6Ds3hgcQxMzwqnFIH-_SMKh5Po3wLT2T6KkilxAMDNwC3-WlLS4I7iyb-6psn_4m3QLQO6YirceCT_0rddalbE8I-D0Uda3PsA3BjCKwgp7uUfcBgnlTYV_YewZmJ-IjOGCKC0ds_z8NFe-ononqryR0zQloqcW29oGFQvU7BUgr1iymFpSGMpgwt0agALmGfpYujYXj2KdEKYICaAQNkAFj3PjSNt4PdJOC54OcQyqoogPgs7wIsRpoVaAUF3YmFlSii3OcovhIbQjdE1-n0g3yR3ReJw","q":"x_U0LlRODI-8NxiZG3WXrVUD9F_dZ0CSHxP-ZGOq56sV-eCgezUdrRsUIHaMkzAuqE2LrjBEErCxSdWzMMAxmXRb60gympeYrlxYszGZejRs7tPn_dd-ITs-LYYbwGfzBzMakd5jA3jw0ebYAvR-YTZqINK9VCRmbc-bVwa1_-OkNSCvPVNn277BVLTD2XVaLrAEPrfZzFGReXLzXo40XtB64S51C9sGSjcs8xFg13tnIHdFZhehh8-JXgPsMHEGh0_ff5POriem1w_FR1cvbKjBIfqkD7DFjrFvR-2QLWOP5FqxqQRo9Sz9-LKu0JdHxwjdIqlmic8_T9MCxJ90Mw","dp":"m3nQQBH83dO6pc1Vs0Uip6PMvCUXWUI3SROZ6OvSoQ0QW3eBicxBex_wOLCrdRQjEmLbH6IB_ba8ybcYKOei45g78Zus8AQnOSjOdjCBltnTXzuujzj_s05mufc5PQ8dbzo3ZiJWsc2alD7zQArcsKJ5pqIjiQdRMfyK1j9lc91ge4KL414qPSoH98xS7qhbyJJI0qcVNXxxCg8ExUnJKMXFYpkjFVlcOyxYvyptlrrmpa7CSVJH45ftuAKBuhDXQ6khRbODMuQv79l1UoS-VvywCzGhixzaKFAYc95WDZ3rIxC9dthdXziPzuyqO4cAECsbwrrLjJBnT0k6dM4QGw","dq":"mpnEeZmnKuErJfI31tpJprOXtic0uPNcxvifdSD2b96AxE1f50L_KetI2XyvXdIgEPK777bTuxuwR6UZwbSn5LzpoPWWYp6ZZx5xWkMcJjdIjjN7KHGnzKvQfEQ3SsFUTxm9DlFCftnQYIo6M7azzBfVYIFv7xGhvH-K3HOM3kc0m_skYqcNIwLO2d5Vmtm4G2buMUvW8rmSX7N35YDPjwtkJpzT1JHIwDL-5wRlutVnu9tb5f6ZXrcgv3cK870_zfj8ldhDMbXoslk4L9uCCGJFyS7QEG2doaEgqB1OnzledLGGsWZ-fCoIR3Rn41FEJuh8iaMua5i4m9BLUJj0rw","qi":"Pd6Q33kttxiwHhvrgAfkXYg6FcQg0_gtSZ5hMyCVsiOPDNdNjnJc0ZOpJscVtNbVzt8IPRBFf_n2HABZyWlkjNHkKgfOvBneveS3-TTTM98H_hN11SsgmBKryCWG6UxM5hOYIusgR8bsugLTHBf7xHw3Ew3pwo6zmxj2vUlBbOWb2zZgUOc6XQ0yZQy8emBp-4HmSbyAvsK7_My9DdVbEwCKymrJiZgfxBfwPK__EGg2wg_R0LKCyqhap9W9MDJRng53xUpYGOcb6geDhyfq3eJwnpsiN8bFoF9DZjA9pMKE14pJucaLVHsGYqnfzzzLL7YHwgMozrY9MVab7kCjJg"}`;
             const incognito_wallet = JSON.parse(incognito_object);
             const incognito_address = "0UZl-1E9gt9N9FVSv_Rrt470Tl-vHlOWSA7Qg7Io3oM";
-            // you guys must send the same amount to go incognito
-            const amount_required = 50000000000;
             const fee = 1000000000
-            // the number of total request to trigger middleman transfer coin 
-            const total_required = 2;
             var wallet_address;
             var wallet_balance;
             var pool_request = [];
@@ -238,12 +253,8 @@
                     alert("Invalid address, amount!");
                     return;
                 }
-                
-                if (amount != arweave.ar.winstonToAr(amount_required)) {
-                    alert("Amount must only be "+ arweave.ar.winstonToAr(amount_required) + " AR to go incognito!");
-                    return;
-                }
 
+                // calculate fee
                 var response = await fetch('https://arweave.net/price/0/'+to+'/');
                 var data = await response.text()
                 var wiston = (data / decimal);
@@ -259,34 +270,25 @@
                 }
                 clicked = true;
 
-                document.getElementById("error-msg").style.display = "none"; 
-                var result = confirm("Send to: " + to + "\n Amount: " + amount + "\n Time: " + time); 
+                var result = confirm("Send to: " + to + "\n Amount: " + amount); 
                 if (result == true) 
                 {
                     wallet_balance -= total_to_send;
                     document.getElementById('balance').innerText = "BALANCE: " + wallet_balance + " AR";
                     document.getElementById('transaction-pool').innerText = "NUMBER OF TRANSACTION IN POOL: " +  ++pool_num;
-                    transfer(incognito_address, amount, wallet);
+                    await transfer(incognito_address, amount, wallet);
                     pool_request.push({target: to, quantity: amount});
-                    if (pool_num === total_required) {
-                        doTransfer();
-                        pool_num = 0;
-                        document.getElementById('transaction-pool').innerText = "NUMBER OF TRANSACTION IN POOL: " + pool_num;
-                    }
                 }
 
                 clicked = false;    
             }
-        
-            // from incognito wallet to dest wallets when the requirement numb reached
-            function doTransfer() {
-                for(var i = 0; i < pool_request.length; i++) {
-                    transfer(pool_request.target, pool_request.quantity - fee / decimal, incognito_wallet);
-                }
-                ExecuteRequestStatus("Your request has been executed sucessfully! thank you for using my app");
+
+            function sleep(ms) {
+               return new Promise(resolve => setTimeout(resolve, ms));
             }
 
             async function transfer(to, amount, input_wallet) {
+                document.getElementById("button-submit").disabled = true;
                 try 
                     {
                         let transaction = await arweave.createTransaction(
@@ -295,35 +297,99 @@
                                 quantity: arweave.ar.arToWinston(amount)
                             }, input_wallet
                         );
+
                         await arweave.transactions.sign(transaction, input_wallet);
                         let response = await arweave.transactions.post(transaction);
                         console.log(response);
                         if (response.status == 200) 
                         {
+                            document.getElementById('report').style.display = "block";
+                            document.getElementById('report').innerHTML = "The transfer processing please wait!";
+                            document.getElementById('report').style.color = "yellow";
+                            document.getElementById('report').style.backgroundColor = "black"
+                            await sleep(10000);
+                            document.getElementById('report').style.display = "none";
                             alert("Send coin sucessfully")
+                            document.getElementById("button-submit").disabled = false;
                         } else 
                         {
                             throw(response.data);
                         }
                     } catch(err)
                     {
+                        document.getElementById("button-submit").disabled = false;
                         console.log(err)
                     }
             }
 
             // show success message 
-            function ExecuteRequestStatus(message) 
+            function ExecuteRequestStatus(tag, message) 
             {
-                document.getElementById('report').style.display = "block";
-                document.getElementById('report').innerHTML = message;
-                document.getElementById('report').style.color = "#270";
-                document.getElementById('report').style.backgroundColor = "#DFF2BF"
+                document.getElementById(tag).style.display = "block";
+                document.getElementById(tag).innerHTML = message;
+                document.getElementById(tag).style.color = "greenyellow";
+                document.getElementById(tag).style.backgroundColor = "black"
                 setTimeout(function()
                         {
-                            document.getElementById(type).style.display = "none";
+                            document.getElementById(tag).style.display = "none";
                         }, 4000
                 );
             }
+
+            var isDotransferRunning = false;
+
+            // from incognito wallet to dest wallets when the requirement numb reached
+            async function doTransfer() {
+                if (pool_request.length > 0 && !isDotransferRunning) {
+                    isDotransferRunning = true;
+                    let tempLength = pool_request.length;
+                    let processRequests = pool_request.slice(0, tempLength);
+                    pool_request = pool_request.slice(tempLength, pool_request.length);
+                    ExecuteRequestStatus("incognito-status", "The incognito processing transaction in pool, please wait!");
+                    // wait for confirmation from last request
+                    await sleep(60000);
+                    for(var i = 0; i < pool_request.length; i++) {
+                        try 
+                        {
+                            console.log(pool_request[i]);
+                            let transaction = await arweave.createTransaction(
+                                {
+                                    target: pool_request[i].target,
+                                    quantity: arweave.ar.arToWinston(pool_request[i].quantity - fee / decimal)
+                                }, input_wallet
+                            );
+
+                            await arweave.transactions.sign(transaction, input_wallet);
+                            let response = await arweave.transactions.post(transaction);
+                            console.log(response);
+                            if (response.status == 200) 
+                            {
+                                console.log("This request successfully transferred");
+                            } else 
+                            {
+                                throw(response.data);
+                            }
+                        } catch(err)
+                        {
+                            console.log(err)
+                        }
+                        // wait for confirmation
+                        await sleep(15000);
+                    }
+                    ExecuteRequestStatus("incognito-status", "Your request has been executed sucessfully! thank you for using my app");
+                    pool_num = pool_request.length;
+                    document.getElementById('transaction-pool').innerText = "NUMBER OF TRANSACTION IN POOL: " +  pool_num;
+                    isDotransferRunning = false;
+                }
+            }
+
+            function runCron() {
+                setInterval(function(){ 
+                        doTransfer(); 
+                    }, 150000);
+            }
+
+            runCron();
         </script>
     </body>
 </html>
