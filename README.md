@@ -5,7 +5,7 @@ Feartures:
 - Anonymous
 - Transfer coin
 
-Improments:
+Improvement:
 - Hope I can hide the sender address and amount in next version
 
 Idea in figure: <br />
