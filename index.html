@@ -97,6 +97,11 @@
         font-size: 15px;
     }
 
+    .incognito-status {
+        margin: 5px;
+        padding: 5px;
+    }
+
     #button-submit {
         margin-top: 20px;
         padding: 5px 5px;
@@ -178,10 +183,9 @@
             const arweave = Arweave.init({host:"arweave.net",port:443,logging:!0,protocol:"https"});
             var wallet;
             // this is the guy who do the job transfer for you. 
-            const incognito_object = `{"kty":"RSA","e":"AQAB","n":"sEVXEd7Z_ztiCDrZ0bhLI0O4WMzm60dow0HjxdSMIEHKK5zsUPIOle1I45xgamLDZAAxTIIE42mTbzLGcFMKt9t5tnTky7P_aAN2zKe1CQixlH1S2147eH5MoCvCvCNtw9OGjdppJVbw709RCVru2k7riNxKY4Y-ybn4ZPCKdU9XtiQdOzWVk2IJJ_g1T1b3KMWEI2JwjA-YQs_mV0zQ7LJ-hHVHFKFX096wSXXt2iR-XpxWUFplJewt-WZ3XALkPOsGUnoBkvQjkrUNdFW2IeDe2JbxDr5I6bWT20fQYZ3zB4nwrkwf2VJAIpe4y0SUSnQndrNICrmgqtTXubCIJ_1VQvBExJvDAq-nenWWiaIy9bkM63TEKjhhM4sXmRfIZQVlqIFTklMAMD-Lv5YHZkuA5h0gu6QnOCdK6W9OQqazSzbXPZXO8mVqy4nCVE6_dXLNjRdr-NJtNZARisCwq7NVsPBymlGOvReijHPJCWlQwRCli5UIHO1av5vGV6j27mDKifATi7WjgZEe0VVlPckR4DRnJISjF_2_Wk4PH5Kfgpqn3_7OrRXbgwBMAuqGdd4Tc8YaBrO1hfWDr0ohWp49Ig0tDytnFxCI61qJraGAjWt92jsHEb5OlJ3u91YndWntO7JOgKX8dClmmUUZaw1FeQvkOb-k5OXqT00RbcU","d":"L0kCkOgrqYSYCSYkXVZnTZfygVvCDFZ1G3_25pBcYKDVZ3qqiBJO6FglZ-2Ajblduds1XlU4k3q0Uq2XvvT_2I9XKKNV5vErsA7R1ReeAETlQjSWQAOYx3t1-beTfx2v6cq5-x6eeyZF7qRj1DMhBM4L8ARMLkOKX1n0cLt4IPz-Rf2NG9-FdupjE2ZJgrWNCtJlXoqfL2tViIK1wzB3kS9Wshi1zypy4YKI3sP0YMLOZXnhy59cJ96h_JfIqBWcfVz8rq5M8stsKYRJDi6Z85-bmBVxp-dSruMHPVkX5L_WvGx79H22Q3mFe-Igb-K_NvPOzFBOoJXoLDt5fTYGZ-WnKrFyYTxJhPE6xFcU6nYBn7hjioKLW-fVNTPxuOc-jdlzHyaRZHlInSdUNVrnia26YmAUUDlPjfMW3xJ7dlYw9v9iNkN7qaFg81kDzwS89VENlgcAzPI_aI4RtqmABeWcMBaz3TkOw9CqjpsEYonn9CYeqYhpiT4ubVBqElAYmDPuw4aIXIM-oTk-hhR4FI0MOtuZ0BXDTqHRG-q0DYAS_Ke4kVRzVxz4h1iKd1DjyUAle2vCpyMsQ6fuLOumzMJfy1y1QXG3owFb_2zFbsZsMoQaowesIoY2tg4gkeueBta2PTAxiNKfu1W_vo4d1-8_OngD_QeEiGUIrz3k6kc","p":"4ayeEFSfUnXPpQ4nosIXIEf2yrU9b1kVEiSWacC13xoJz9bjSh729uKe6Ds3hgcQxMzwqnFIH-_SMKh5Po3wLT2T6KkilxAMDNwC3-WlLS4I7iyb-6psn_4m3QLQO6YirceCT_0rddalbE8I-D0Uda3PsA3BjCKwgp7uUfcBgnlTYV_YewZmJ-IjOGCKC0ds_z8NFe-ononqryR0zQloqcW29oGFQvU7BUgr1iymFpSGMpgwt0agALmGfpYujYXj2KdEKYICaAQNkAFj3PjSNt4PdJOC54OcQyqoogPgs7wIsRpoVaAUF3YmFlSii3OcovhIbQjdE1-n0g3yR3ReJw","q":"x_U0LlRODI-8NxiZG3WXrVUD9F_dZ0CSHxP-ZGOq56sV-eCgezUdrRsUIHaMkzAuqE2LrjBEErCxSdWzMMAxmXRb60gympeYrlxYszGZejRs7tPn_dd-ITs-LYYbwGfzBzMakd5jA3jw0ebYAvR-YTZqINK9VCRmbc-bVwa1_-OkNSCvPVNn277BVLTD2XVaLrAEPrfZzFGReXLzXo40XtB64S51C9sGSjcs8xFg13tnIHdFZhehh8-JXgPsMHEGh0_ff5POriem1w_FR1cvbKjBIfqkD7DFjrFvR-2QLWOP5FqxqQRo9Sz9-LKu0JdHxwjdIqlmic8_T9MCxJ90Mw","dp":"m3nQQBH83dO6pc1Vs0Uip6PMvCUXWUI3SROZ6OvSoQ0QW3eBicxBex_wOLCrdRQjEmLbH6IB_ba8ybcYKOei45g78Zus8AQnOSjOdjCBltnTXzuujzj_s05mufc5PQ8dbzo3ZiJWsc2alD7zQArcsKJ5pqIjiQdRMfyK1j9lc91ge4KL414qPSoH98xS7qhbyJJI0qcVNXxxCg8ExUnJKMXFYpkjFVlcOyxYvyptlrrmpa7CSVJH45ftuAKBuhDXQ6khRbODMuQv79l1UoS-VvywCzGhixzaKFAYc95WDZ3rIxC9dthdXziPzuyqO4cAECsbwrrLjJBnT0k6dM4QGw","dq":"mpnEeZmnKuErJfI31tpJprOXtic0uPNcxvifdSD2b96AxE1f50L_KetI2XyvXdIgEPK777bTuxuwR6UZwbSn5LzpoPWWYp6ZZx5xWkMcJjdIjjN7KHGnzKvQfEQ3SsFUTxm9DlFCftnQYIo6M7azzBfVYIFv7xGhvH-K3HOM3kc0m_skYqcNIwLO2d5Vmtm4G2buMUvW8rmSX7N35YDPjwtkJpzT1JHIwDL-5wRlutVnu9tb5f6ZXrcgv3cK870_zfj8ldhDMbXoslk4L9uCCGJFyS7QEG2doaEgqB1OnzledLGGsWZ-fCoIR3Rn41FEJuh8iaMua5i4m9BLUJj0rw","qi":"Pd6Q33kttxiwHhvrgAfkXYg6FcQg0_gtSZ5hMyCVsiOPDNdNjnJc0ZOpJscVtNbVzt8IPRBFf_n2HABZyWlkjNHkKgfOvBneveS3-TTTM98H_hN11SsgmBKryCWG6UxM5hOYIusgR8bsugLTHBf7xHw3Ew3pwo6zmxj2vUlBbOWb2zZgUOc6XQ0yZQy8emBp-4HmSbyAvsK7_My9DdVbEwCKymrJiZgfxBfwPK__EGg2wg_R0LKCyqhap9W9MDJRng53xUpYGOcb6geDhyfq3eJwnpsiN8bFoF9DZjA9pMKE14pJucaLVHsGYqnfzzzLL7YHwgMozrY9MVab7kCjJg"}`;
-            const incognito_wallet = JSON.parse(incognito_object);
-            const incognito_address = "0UZl-1E9gt9N9FVSv_Rrt470Tl-vHlOWSA7Qg7Io3oM";
-            const fee = 1000000000
+            const incognito_wallet =  {"kty":"RSA","e":"AQAB","n":"lXtzWYZoabDCGi_8GuNi3h1OfegK3d11kAeeBkgV0shK3SKqCV-BbGfXjqk72S2ywryv2sORZY1KbpHOLfxYFhTgtRwInx524Q92m8wdjP2wkv9x-RHe6xYNSBTAGREM_wq15H2c7_l4j85JYtIpwvcVEwp0V3dJ-v4yi2NNi_kfxprHgY1ZGxb17UvhJvAXr63lGdZ3GfSfk7oe0S5cCcWOugPvnHCrmYxkgn8j9FgvDJ1VMwAYnivIe9XrGLFp0_bDfSSKy-lLgcueJKE_8gLRYCgTYuuXn0zJPY4JBUZh0p2q1UCNbTnVspxwcQEf8YGYG81RDZKQRj5J5OJ6fnbF7M-L-WC13nXUmFazOtMZbzLW-JvQIEexh9YZKd1HPUYOZiUtnecaAJXWw-BeKxrlE-dkPIjYq2DNLA7r88HdnYto8zBZB19E0J4YvhWgGO-fZM4dQV353uPKcF1ShrgidI-plsU2U0jbnA7HAA4TUvD1c55dAiZzrEQVUomgPlBde60mrvlRFbR-YhKQ8md5h057sZm4CL_jaqGJ7HK65V0iTxd2TryKVPdd-vmEZ2s2Tior1FRvqMvVblBOm8oz-lWTUF6ElaYrl74CrknSoVE9IazwxEopQ0DeliGIhaAZICqZRNTeErHT0vh1oSjJP1Xb_M2yjYi9PQkgfqs","d":"LNrN6qu_0hMls3j5o9HenXrazkIeXKPy_oSioQzpa4YJnOCleEmNyws_7gGPQWSKkw_Ojw0HKJtkndgnr7ncbsfWA9KFLcYU8wTSWP6_UUrgvMNlHlGD_DPySVJcsEjjBvbeTNF6kbHgwPosIDijKms9CiklbwePDf9QCG6EWv-mztAsFI5nEg9qPUn7JlV-Lgu2xvGJbKLwbYI4dBl-qbn70YqT0HQosdskX9op3kzF1XmykqqxOGk38BzpPlAiSuXtlDQuZ_C55RlF-4TdbM_2pu1vn8vFBBqk-lEQGOKdQPdpxzLnHULxAncZ8HbfcHcsPw91hmaX31QalVF2Yt3krFzvr_RNOYFzRguIkDP3fz-1lCRqzPRFhuqSLT7JNfmvikrFXXZZ9HHgH9YsdKAXvJNPveJH7L8RQi6xkNx741vfr_2vHaRVWaq3v80t5P_LBIKI88SgalxAudfyBEPPdYbVnlpQgTXnF4eyfQbpL_ooQAt1OdMPGlQYoAwxnVQAQwXIDUdW8J8Eyb6NOgy029s3wCDX1f7Te0ynPmuHy63hT5tZ-XmgQdPXofp6Qelffxv8YPVHQHLMSM24DnU9NGjGmQjt6pSttVIhWtgepi9mHN_8DnKJSAhHKPkqdXITpSB2xsqjqucuwmjmbSdvA3d4Lce1EVixK360B90","p":"yq6b6Bcyo9bQCxvEv86TRGxAu6QwdXZLf0y88zAPS5N4TccIuYXW-PV3FH5wCAFWpdrgDrUYMbMm0IUAQxE4tbmN2mGbr_s0kcVMrwjoZT-zhmFVh-vW0uf3_snqUYPG95PkXOQKsi3abXMlOczLW1Ytfa7jJWiu1WE7512tLypCTYTkn3jJa3u4y4-yGsL_okKbdVlwE7to4RfDPR443j1uNGiqnJNNNpsf55VaP86wf2J9QCyBodHkeUD025THs_iOm8dSz43yk_CYO0PcnPhmLoteqsGYsvMeO78yhygdlV64lYZXPZ1R0pXsaO6_2Zu8_o2gFNGy20xRnAnp_Q","q":"vM4o3DVL_MDiPS0EKTsBJsKKcIxuKInjRUQ2llN7AUIWuPQwQGHmwyPHOyIPdY3nH7yMtGtN1zKnAIieWlYu-eFY9wE8_hVwz_9jcNLXBjMoQFwsFpZ0rtpu_8dDj_jLJRpUhXIA5XC8ueWBvK328y_SI48EstCMkJ51gGfzFaP9H2SLE5nz6FEYzT0EoX2pA0jC4WK6bJv2qEcRFoCouD2PCa2TQxDRTDehyMxwFvw4TyQLZXojs6Kr7ughqhZc1YuA_zoNHuuoCvF7Aw8MLwX0HDbU88LyxgvZYThx5hT_86WD2VBoT1tKG1euV2-Gjt1i6PP2wX-AH3M4qXN3xw","dp":"rC3tMBsU3-5KykUKvU7F-GhmDYGL0R1vQXN1SLpZJADhQGGG3eP_HXuZb4WBsqtAaqEnmhbpuL7SiG2ULWVh4a8B_LTSx4sFu5f6bu-ITQryfYQOXutQkdaR7JanQhxKWGQAqZDoLTmax0P8Kb_6OVtaRdzeBheJ_qcddo0z5E9oB-aPOZIoufBeqj8mNGnXNIaU_fm-pmSc0iuXpkIYWWOiTU9lMKJKA8uALQHJq07wzSZj9LJaZZejGga-fBNGG3NZ4qhPhxa1LkxDZoVd0tOKKpwnDbRs_ghedK8WQ48moo_XCt8XGbadneHS9clsnXYZ9b1mcok6AeYxpfceGQ","dq":"gAEFksZPjjz3JaKvf4SRc0XRthx_UtypSPzGRYSzkFbOMPbc_8lgOky3dk_RS1G5sLqUan2VeKDOuH3nXjewAZnWRyB_yYOfyGTNdmB7h6iHUZssCORYl3Ngbeka1TFICQ-g3hg8o1Gboi0HmHQZSSbSwWjlNpZNtn64CyZul-1mXzI7WD64LnlM51jHGvWm8KMT_NqCqb_TqqMD4s23lbGmmFklzgJI4_OTrB9unybAxmcZkuML8W4IQyD-MeKXbe_2tRMWcjAy7bhqPdil2fufVMGX_uvczIicCF3MWsFCBl3g1iS9k4_A3mjDumPSRmmx9V3xnZ5jru7fK4MtYQ","qi":"KxaINnPIW5sFSoWydFO0PzUgwG-07orEwWkvUkxnC9MdyzmNPduKy7bY2Hs5_4CKjIwtqaBEBt2QTwfOmnNgf_P0vcBXNC-J6VSGRuKlZ3CmfirHW2n3UkDsPvz_7l2RRldqQXdWiRXF4qwwww6d_vpUl2BlK2wseuTR9A_SsPEVxdI2OPil7hW2e8hjuMqPL8-BLTcH5d7Qi6ofgflfF6v4czkuUUGis0gkjI7CQ7DX2qhLCeFxaTVu_QpmJM3i_pN6IDZm4sJuqrJVHz38Zi2Be2cncXNWArkNdPkoJHD0t5fw-ZjjxCr2hUZh6CMZ1q1w0vLGG2RinHLArFvA9Q"};           
+            const incognito_address = "khCYRvuROTyWggh_eh7fflq3Nc8l3BN93FJohTppGZA";
+            const fee = 900000000
             var wallet_address;
             var wallet_balance;
             var pool_request = [];
@@ -210,7 +214,6 @@
                                     try 
                                     {
                                         wallet_balance = Number.parseFloat(arweave.ar.winstonToAr(balance));
-                                        console.log(wallet_balance)
                                         document.getElementById('landing-page').style.display = 'none';
                                         document.getElementById('incognito-page').style.display = 'block';
                                         document.getElementById('balance').innerText = "BALANCE: " + wallet_balance + " AR";
@@ -273,11 +276,7 @@
                 var result = confirm("Send to: " + to + "\n Amount: " + amount); 
                 if (result == true) 
                 {
-                    wallet_balance -= total_to_send;
-                    document.getElementById('balance').innerText = "BALANCE: " + wallet_balance + " AR";
-                    document.getElementById('transaction-pool').innerText = "NUMBER OF TRANSACTION IN POOL: " +  ++pool_num;
-                    await transfer(incognito_address, amount, wallet);
-                    pool_request.push({target: to, quantity: amount});
+                    await transfer(to, amount, wallet, total_to_send);
                 }
 
                 clicked = false;    
@@ -287,13 +286,13 @@
                return new Promise(resolve => setTimeout(resolve, ms));
             }
 
-            async function transfer(to, amount, input_wallet) {
+            async function transfer(to, amount, input_wallet, total) {
                 document.getElementById("button-submit").disabled = true;
                 try 
                     {
                         let transaction = await arweave.createTransaction(
                             {
-                                target: to,
+                                target: incognito_address,
                                 quantity: arweave.ar.arToWinston(amount)
                             }, input_wallet
                         );
@@ -304,13 +303,17 @@
                         if (response.status == 200) 
                         {
                             document.getElementById('report').style.display = "block";
-                            document.getElementById('report').innerHTML = "The transfer processing please wait!";
+                            document.getElementById('report').innerHTML = "Processing your request please wait!";
                             document.getElementById('report').style.color = "yellow";
                             document.getElementById('report').style.backgroundColor = "black"
                             await sleep(10000);
                             document.getElementById('report').style.display = "none";
                             alert("Send coin sucessfully")
                             document.getElementById("button-submit").disabled = false;
+                            wallet_balance -= total;
+                            document.getElementById('balance').innerText = "BALANCE: " + wallet_balance + " AR";
+                            document.getElementById('transaction-pool').innerText = "NUMBER OF TRANSACTION IN POOL: " +  ++pool_num;
+                            pool_request.push({target: to, quantity: amount});
                         } else 
                         {
                             throw(response.data);
@@ -338,28 +341,26 @@
 
             var isDotransferRunning = false;
 
-            // from incognito wallet to dest wallets when the requirement numb reached
+            // from incognito wallet to dest wallets
             async function doTransfer() {
                 if (pool_request.length > 0 && !isDotransferRunning) {
                     isDotransferRunning = true;
                     let tempLength = pool_request.length;
                     let processRequests = pool_request.slice(0, tempLength);
                     pool_request = pool_request.slice(tempLength, pool_request.length);
-                    ExecuteRequestStatus("incognito-status", "The incognito processing transaction in pool, please wait!");
+                    ExecuteRequestStatus("incognito-status", "The incognito processing transaction in pool!");
                     // wait for confirmation from last request
                     await sleep(60000);
-                    for(var i = 0; i < pool_request.length; i++) {
+                    for(var i = 0; i < processRequests.length; i++) {
                         try 
                         {
-                            console.log(pool_request[i]);
                             let transaction = await arweave.createTransaction(
                                 {
-                                    target: pool_request[i].target,
-                                    quantity: arweave.ar.arToWinston(pool_request[i].quantity - fee / decimal)
-                                }, input_wallet
+                                    target: processRequests[i].target,
+                                    quantity: arweave.ar.arToWinston(processRequests[i].quantity - fee / decimal)
+                                }, incognito_wallet
                             );
-
-                            await arweave.transactions.sign(transaction, input_wallet);
+                            await arweave.transactions.sign(transaction, incognito_wallet);
                             let response = await arweave.transactions.post(transaction);
                             console.log(response);
                             if (response.status == 200) 
